@@ -3,9 +3,9 @@
 function select_attribute(div_elem) {
   div_elem.children[0].checked = true;
   var array_divs = document.getElementsByName("rad");
-  array_divs.forEach(function(elem) {
+  for (var elem of array_divs) {
     elem.setAttribute("class", "sel");
-  });
+  }
   div_elem.setAttribute("class", "sel2");
 }
 
