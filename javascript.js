@@ -3,8 +3,8 @@
 function select_attribute(div_elem) {
   div_elem.children[0].checked = true;
   var array_divs = document.getElementsByName("rad");
-  for (var elem of array_divs) {
-    elem.setAttribute("class", "sel");
+  for (var i = 0; i < array_divs.length; i++) {
+    array_divs[i].setAttribute("class", "sel");
   }
   div_elem.setAttribute("class", "sel2");
 }
