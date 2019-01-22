@@ -24,7 +24,7 @@
 }
 
 body {
-  background-image: linear-gradient(#eee, #ccc, #aaa);
+  background-color: #eee;
 }
 
 .card {
