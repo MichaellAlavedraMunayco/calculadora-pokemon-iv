@@ -1,4 +1,30 @@
 "use strict";
+var c = 1;
+
+function change_gif(img) {
+  var pkname = document.getElementById("poke-name");
+  var url = "http://www.pokestadium.com/sprites/xy/";
+  switch (c) {
+    case 2:
+      url += pkname.innerText.toLowerCase() + "-2.gif";
+      break;
+    case 3:
+      url += pkname.innerText.toLowerCase() + "-3.gif";
+      break;
+    case 4:
+      url += "back/" + pkname.innerText.toLowerCase() + ".gif";
+      break;
+    case 5:
+      url += "shiny/" + pkname.innerText.toLowerCase() + ".gif";
+      break;
+    default:
+      url += pkname.innerText.toLowerCase() + ".gif";
+      break;
+  }
+  img.src = url;
+  if (c > 5) c = 1;
+  c++;
+}
 
 function select_attribute(div_elem) {
   div_elem.children[0].checked = true;
@@ -12,6 +38,7 @@ function select_attribute(div_elem) {
 function search_pokemon(h_elem) {
   var img = document.getElementById("img-pk");
   img.src = "http://www.pokestadium.com/sprites/xy/" + h_elem.innerText.toLowerCase() + ".gif";
+  c = 1;
 }
 
 function calcular() {
@@ -113,8 +140,8 @@ function calcular() {
   });
 
   var outputs = document.getElementsByName("output");
-  outputs[0].innerText = result_CP[0][0];
+  outputs[0].innerText = result_CP[0][3] + "%";
   outputs[1].innerText = result_CP[0][1];
   outputs[2].innerText = result_CP[0][2];
-  outputs[3].innerText = result_CP[0][3] + "%";
+  outputs[3].innerText = result_CP[0][0];
 }
